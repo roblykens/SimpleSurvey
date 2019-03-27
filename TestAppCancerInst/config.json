@@ -1,0 +1,12 @@
+{
+  "ConnectionStrings": {
+    "SurveyConnectionString": "server=(localdb)\\ProjectsV13;Database=SurveyDb;Integrated Security=true;MultipleActiveResultSets=true;"
+  }
+  ,
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning"
+    }
+  }
+}
