@@ -4,7 +4,7 @@
   "newProjectRoot": "projects",
   "projects": {
     "TestAppCancerInst": {
-      "root": "",
+      "root": "src",
       "sourceRoot": "src",
       "projectType": "application",
       "architect": {

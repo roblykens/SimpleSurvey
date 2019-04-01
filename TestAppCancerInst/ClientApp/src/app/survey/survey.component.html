@@ -10,12 +10,22 @@
       <div><p>{{ question.question }}</p></div>
       <div>
         <div *ngFor="let c of question.choices" class="form-group">
-          <input type="radio" value="" id="" />
+          <input type="radio" name="choice" value="" id="{{ c.Id }}" />&nbsp;&nbsp;{{ c.choice }}
         </div>
       </div>
       <div class="col-md-6 col-md-offset-2">
-        <button id="Next" class="btn btn-md btn-success" (click)="loadQuestion()">Next</button>
+        <button id="Next" class="btn btn-lg btn-primary" (click)="loadQuestion()">Next</button>
       </div>
     </form>
   </div>
+</div>
+
+
+<div class="input-group">
+  <div class="input-group-prepend">
+    <div class="input-group-text">
+      <input type="radio" aria-label="Radio button for following text input">
+    </div>
+  </div>
+  <input type="text" class="form-control" aria-label="Text input with radio button">
 </div>

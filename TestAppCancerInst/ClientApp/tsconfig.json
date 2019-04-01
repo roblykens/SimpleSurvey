@@ -1,18 +1,16 @@
 {
-  "exclude": [
-    "./node_modules/"
-  ],
-
+  "exclude": [ "./node_modules/" ],
   "compileOnSave": false,
-  "compilerOption":  { 
+  "compilerOptions": {
     "baseUrl": "./",
-    "importHelpers": true,
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
+    "module": "es2015",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "importHelpers": true,
     "target": "es5",
     "typeRoots": [
       "node_modules/@types"
@@ -20,11 +18,10 @@
     "paths": {
       "core-js/es7/reflect": [
         "node_modules/core-js/proposals/reflect-metadata"
-    ]},
+      ]},
     "lib": [
-      "es2017",
+      "es2018",
       "dom"
-    ],
-    "module": "es2015"
+    ]
   }
 }

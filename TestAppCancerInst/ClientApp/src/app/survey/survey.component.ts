@@ -13,17 +13,23 @@ export class SurveyComponent implements OnInit {
   private questionId = 0;
 
   constructor(private data: DataService) {
+    this.question = data.question;
   }
 
   loadQuestion() {
-    this.data.getQuestion(1)
+    this.data.getQuestion(this.questionId)
       .subscribe(success => {
         if (success) {
-          this.question = this.data.questions[0];
+          this.question = this.data.question;
           this.questionId++;
         }
-      });
-  }
+      },
+        error => {
+            console.error(error);
+          }
+        );
+  };
+
 
   ngOnInit() {
     if (this.questionId < 1) {
