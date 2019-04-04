@@ -3,7 +3,8 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs"
 import { map } from "rxjs/operators";
 import { Question, Choices } from "./question";
-//import { Answer } from "./answer";
+import { Answer } from "./answer";
+import { Nickname } from "./nickname";
 
 
 @Injectable()
@@ -13,17 +14,9 @@ export class DataService {
 
   //Questions
   public question: Question = new Question();
+  public nick: Nickname;
 
   public getQuestion(val): Observable<boolean> {
-
-    //this.http.get<Question>("api/question/" + val).subscribe(result => {
-    //    this.question = result;
-    //    return true;
-    //  },
-    //  error => {
-    //    console.error(error);
-    //    return false;
-    //  });
 
     return this.http.get("api/question/" + val)
       .pipe(
@@ -31,44 +24,44 @@ export class DataService {
           this.question = data;
           return true;
         }));
-
   };
 
-  //this.http.get('http://localhost:5000/api/question/' + val)//.pipe(
-    //  .subscribe((data: any) => {
-    //    map((data: any) => {
-    //        let response = Response;
-    //        console.log(data);
-    //        this.question = data;
-    //  },
-    //  error => {
-    //    console.log('Log the error here: ', error);
-    //  });
-  //};
+  //Nickname
+  public getNickname(val): Observable<boolean> {
 
+    return this.http.get("api/nick/" + val)
+      .pipe(
+        map((data: any) => {
+          this.nick = data;
+          return true;
+        }));
+  };
 
-  //private handleError<T>(operation = 'operation', result?: T) {
-  //  return (error: any): Observable<T> => {
+  addNickName(nickname: string) {
+    this.nick.nickname = nickname;
+    return this.http.post("/api/nick", this.nick)
+      .subscribe((val:Nickname) => {
+        console.log("POST call successful", val);
+        this.nick = val;
+      },
+        response => {
+          console.log("POST call had an error.", response);
+        },
+        () => { console.log("Success"); }
+      );
+  }
 
-  //    console.error(error); // log to console instead
+  //Answers
+  addAnswer(answer: Answer) {
+    return this.http.post("/api/Answer", answer)
+      .subscribe((val:Answer) => {
+        console.log("POST call successful", val);
+      },
+        response => {
+          console.log("POST call had an error.", response);
+        },
+        () => { console.log("Success"); }
+      );
+  }
 
-  //    // Let the app keep running by returning an empty result.
-  //    return of(result as T);
-  //  };
-  //}
-
-
-  ////Answers
-  //addAnswer(answer: Answer) {
-  //  return this.http.post("/api/AddEntity", answer)
-  //  .subscribe((val) =>
-  //  {
-  //    console.log("POST call successful", val);
-  //  },
-  //    response => {
-  //      console.log("POST call had an error.", response);
-  //    },
-  //    () => {console.log("Success");}
-  //  );
-  //}
 };

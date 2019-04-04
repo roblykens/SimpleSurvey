@@ -10,8 +10,8 @@ using TestAppCancerInst.Data;
 namespace TestAppCancerInst.Migrations
 {
     [DbContext(typeof(SurveyDbContext))]
-    [Migration("20190326053048_InitialDatabase")]
-    partial class InitialDatabase
+    [Migration("20190404213037_IntitialDatabase")]
+    partial class IntitialDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -57,8 +57,9 @@ namespace TestAppCancerInst.Migrations
 
             modelBuilder.Entity("TestAppCancerInst.Data.Entitites.SurveyNickname", b =>
                 {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name");
 

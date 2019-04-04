@@ -8,7 +8,7 @@ namespace TestAppCancerInst.Data.Entitites
 {
     public class SurveyNickname
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
     }
 }

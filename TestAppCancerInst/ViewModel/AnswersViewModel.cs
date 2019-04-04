@@ -9,6 +9,7 @@ namespace TestAppCancerInst.ViewModel
 {
     public class AnswersViewModel
     {
+        public int Id { get; set; }
         [Required]
         public int NickNameId { get; set; }
         [Required]

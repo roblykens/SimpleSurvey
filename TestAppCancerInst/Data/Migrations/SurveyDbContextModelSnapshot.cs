@@ -55,8 +55,9 @@ namespace TestAppCancerInst.Migrations
 
             modelBuilder.Entity("TestAppCancerInst.Data.Entitites.SurveyNickname", b =>
                 {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name");
 

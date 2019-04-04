@@ -42,8 +42,8 @@ namespace TestAppCancerInst.Controllers
             }
         }
 
-        [HttpGet]
-        [Route("api/answer/[action]")]
+        [Route("api/answer/[action]/{nid,qid}")]        
+        [HttpGet("{nid:int},{qid:int}")]
         public IActionResult Get(int nicknameId, int questionId)
         {
             try
@@ -66,8 +66,9 @@ namespace TestAppCancerInst.Controllers
         }
 
 
-        [HttpPost]
+        
         [Route("api/answer/[action]/{model}")]
+        [HttpPost]
         public IActionResult Post([FromBody]AnswersViewModel model)
         {
             try
@@ -93,9 +94,8 @@ namespace TestAppCancerInst.Controllers
             return BadRequest("Failed to save new answer");
         }
 
-
-        [HttpGet]
-        [Route("api/nick/{model}")]
+        [Route("api/nick/{nickname}")]
+        [HttpGet("{nickname}")]
         public IActionResult Get(string nickname)
         {
             try

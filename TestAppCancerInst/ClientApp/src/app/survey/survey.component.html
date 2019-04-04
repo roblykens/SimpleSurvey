@@ -1,31 +1,24 @@
-<div class="row">
-  <div class="col-sm-2"></div>
-  <div class="col-sm-8">
-    <form>
-      <h3 class="text-center">Question {{ questionId }} of 7 </h3>
 
-      <div class="form-group">
-        <h2>Question:</h2>
-      </div>
-      <div><p>{{ question.question }}</p></div>
+
+<form id="surveyForm">
+  <h3 class="text-center">Question {{ questionId }} of 8</h3>
+  <div>
+    <div class="col-sm-12 bg-light p-2 m-2">
+      <h2>Question:</h2>
       <div>
+        <p>{{ question.question }}</p>
+      </div>
+      <div>
+        <div *ngIf="question.choices.length < 1"><input (keyup)="onKey($event)" id="nick" class="text-primary"/> </div>
         <div *ngFor="let c of question.choices" class="form-group">
-          <input type="radio" name="choice" value="" id="{{ c.Id }}" />&nbsp;&nbsp;{{ c.choice }}
+          <input type="radio" [(ngModel)]="selectedchoice" value="{{ c.Id }}" ng-value="c.Id" />&nbsp;&nbsp;{{ c.choice }}
         </div>
       </div>
-      <div class="col-md-6 col-md-offset-2">
-        <button id="Next" class="btn btn-lg btn-primary" (click)="loadQuestion()">Next</button>
-      </div>
-    </form>
-  </div>
-</div>
-
-
-<div class="input-group">
-  <div class="input-group-prepend">
-    <div class="input-group-text">
-      <input type="radio" aria-label="Radio button for following text input">
+    </div>
+    <div class="col-sm-12 p-2 m-2 bg-dark text-right" >
+      <button id="Next" class="btn btn-lg btn-primary" (click)="loadQuestion()">{{ NextBtn }}</button>
     </div>
   </div>
-  <input type="text" class="form-control" aria-label="Text input with radio button">
-</div>
+</form>
+
+
