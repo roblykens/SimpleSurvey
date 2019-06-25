@@ -1,5 +1,5 @@
 
-export interface Nickname {
-  nickId: number;
-  nickname: string;
+export class Nickname {
+  id: number;
+  name: string;
 }

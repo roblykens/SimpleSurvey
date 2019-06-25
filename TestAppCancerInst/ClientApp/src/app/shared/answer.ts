@@ -1,7 +1,7 @@
 
 
-export interface Answer {
-  nickId: number;
+export class Answer {
+  nickNameId: number;
   questionId: number;
   choiceId: number;
 }

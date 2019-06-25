@@ -13,7 +13,7 @@ using TestAppCancerInst.ViewModel;
 
 namespace TestAppCancerInst.Controllers
 {
-    
+    [Route("api/[controller]")]
     public class SurveyController : Controller
     {
         public IDbRepository _repo;
@@ -27,7 +27,7 @@ namespace TestAppCancerInst.Controllers
             _map = map;
         }
 
-        [Route("api/question/{id?}")]
+        [Route("question/{id?}")]
         [HttpGet("{id:int}")]
         public IActionResult Get(int id)
         {
@@ -42,7 +42,7 @@ namespace TestAppCancerInst.Controllers
             }
         }
 
-        [Route("api/answer/[action]/{nid,qid}")]        
+        [Route("answer/[action]/{nid,qid}")]        
         [HttpGet("{nid:int},{qid:int}")]
         public IActionResult Get(int nicknameId, int questionId)
         {
@@ -67,7 +67,7 @@ namespace TestAppCancerInst.Controllers
 
 
         
-        [Route("api/answer/[action]/{model}")]
+        [Route("answer/[action]")]
         [HttpPost]
         public IActionResult Post([FromBody]AnswersViewModel model)
         {
@@ -94,7 +94,7 @@ namespace TestAppCancerInst.Controllers
             return BadRequest("Failed to save new answer");
         }
 
-        [Route("api/nick/{nickname}")]
+        [Route("nick/{nickname}")]
         [HttpGet("{nickname}")]
         public IActionResult Get(string nickname)
         {
@@ -110,7 +110,7 @@ namespace TestAppCancerInst.Controllers
         }
 
 
-        [Route("api/nick/{model}")]
+        [Route("nick")]
         [HttpPost]
         public IActionResult PostNick([FromBody]NickNameViewModel model)
         {

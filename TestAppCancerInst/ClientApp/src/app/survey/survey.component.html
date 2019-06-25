@@ -1,24 +1,21 @@
-
-
-<form id="surveyForm">
-  <h3 class="text-center">Question {{ questionId }} of 8</h3>
-  <div>
-    <div class="col-sm-12 bg-light p-2 m-2">
-      <h2>Question:</h2>
-      <div>
-        <p>{{ question.question }}</p>
-      </div>
-      <div>
-        <div *ngIf="question.choices.length < 1"><input (keyup)="onKey($event)" id="nick" class="text-primary"/> </div>
-        <div *ngFor="let c of question.choices" class="form-group">
-          <input type="radio" [(ngModel)]="selectedchoice" value="{{ c.Id }}" ng-value="c.Id" />&nbsp;&nbsp;{{ c.choice }}
-        </div>
-      </div>
+<h3 class="text-center">Question {{ questionId }} of 8</h3>
+<div>
+  <div class="col-sm-12 bg-light p-2 m-2">
+    <h2>Question:</h2>
+    <div>
+      <p>{{ question.question }}</p>
+      <p class="text-danger">{{  msg  }}</p>
     </div>
-    <div class="col-sm-12 p-2 m-2 bg-dark text-right" >
-      <button id="Next" class="btn btn-lg btn-primary" (click)="loadQuestion()">{{ NextBtn }}</button>
+    <div>
+      <div *ngIf="question.choices.length < 1 && NextBtn !== '' "><input (keyup)="onKey($event)" id="nick" class="text-primary" /> </div>
+      <div *ngFor="let c of question.choices" class="form-group">
+        <input type="radio" [(ngModel)]="selectedchoice" value="{{ c.id }}" ng-value="c.id" />&nbsp;&nbsp;{{ c.choice }}
+      </div>
     </div>
   </div>
-</form>
+  <div *ngIf="  NextBtn !== '' " class="col-sm-12 p-2 m-2 bg-dark text-right">
+    <button id="Next" class="btn btn-lg btn-primary" (click)="loadQuestion()">{{ NextBtn }}</button>
+  </div>
+</div>
 
 

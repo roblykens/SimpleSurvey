@@ -14,11 +14,11 @@ export class DataService {
 
   //Questions
   public question: Question = new Question();
-  public nick: Nickname;
+  public nick: Nickname = new Nickname();
 
   public getQuestion(val): Observable<boolean> {
 
-    return this.http.get("api/question/" + val)
+    return this.http.get("api/survey/question/" + val)
       .pipe(
         map((data: any) => {
           this.question = data;
@@ -29,39 +29,52 @@ export class DataService {
   //Nickname
   public getNickname(val): Observable<boolean> {
 
-    return this.http.get("api/nick/" + val)
+    return this.http.get("api/survey/nick/" + val)
       .pipe(
-        map((data: any) => {
+        map((data: boolean) => {
+            return data;
+      }));
+  };
+
+
+  public addNickName(nVal): Observable<boolean> {
+    var n = new Nickname();
+    n.name = nVal;
+    return this.http.post("/api/survey/nick", n)
+      .pipe(
+        map((data: Nickname) => {
           this.nick = data;
           return true;
         }));
   };
 
-  addNickName(nickname: string) {
-    this.nick.nickname = nickname;
-    return this.http.post("/api/nick", this.nick)
-      .subscribe((val:Nickname) => {
-        console.log("POST call successful", val);
-        this.nick = val;
-      },
-        response => {
-          console.log("POST call had an error.", response);
-        },
-        () => { console.log("Success"); }
-      );
-  }
 
-  //Answers
-  addAnswer(answer: Answer) {
-    return this.http.post("/api/Answer", answer)
-      .subscribe((val:Answer) => {
-        console.log("POST call successful", val);
-      },
-        response => {
-          console.log("POST call had an error.", response);
-        },
-        () => { console.log("Success"); }
-      );
-  }
+  public addAnswer(answer: Answer): Observable<boolean> {
+    return this.http.post("/api/survey/answer/post", answer)
+      .pipe(
+        map((data: Answer) => {
+            if (data) {
+              return true;
+            }
+          },
+          err => {
+            console.log("Error in saving answer: ", err);
+            return false;
+          }
+        ));
+  };
+
+  ////Answers
+  //addAnswer(answer: Answer) {
+  //  return this.http.post("/api/survey/Answer", answer)
+  //    .subscribe((val:Answer) => {
+  //      console.log("POST call successful", val);
+  //    },
+  //      response => {
+  //        console.log("POST call had an error.", response);
+  //      },
+  //      () => { console.log("Success"); }
+  //    );
+  //}
 
 };

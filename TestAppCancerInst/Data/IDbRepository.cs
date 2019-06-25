@@ -6,7 +6,7 @@ namespace TestAppCancerInst.Data
     {
         void AddEntity(object model);
         SurveryAnswer GetAnswer(int NicknameId, int QuestionId);
-        SurveyNickname GetNickname(string nick);
+        bool GetNickname(string nick);
         SurveyQuestion GetQuestion(int id = 0);
         bool SaveAll();
     }

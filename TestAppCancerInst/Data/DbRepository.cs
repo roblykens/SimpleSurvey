@@ -20,10 +20,15 @@ namespace TestAppCancerInst.Data
             _logger = logger;
         }
 
-        public SurveyNickname GetNickname(string nick)
+        public bool GetNickname(string nick)
         {
-            return _ctx.Nicknames
-                .FirstOrDefault(n => n.Name == nick);
+            var nk = _ctx.Nicknames.FirstOrDefault(n => n.Name == nick);
+            if (nk == null)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         //Get Questions
