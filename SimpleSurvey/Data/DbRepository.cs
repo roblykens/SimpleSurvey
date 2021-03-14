@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using TestAppCancerInst.Data.Entitites;
+using SimpleSurvey.Data.Entitites;
 
-namespace TestAppCancerInst.Data
+namespace SimpleSurvey.Data
 {
     public class DbRepository : IDbRepository
     {

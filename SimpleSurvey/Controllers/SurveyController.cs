@@ -7,11 +7,11 @@ using Microsoft.AspNetCore.Identity.UI.Pages.Internal.Account;
 using Microsoft.AspNetCore.Identity.UI.Pages.Internal.Account.Manage;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using TestAppCancerInst.Data;
-using TestAppCancerInst.Data.Entitites;
-using TestAppCancerInst.ViewModel;
+using SimpleSurvey.Data;
+using SimpleSurvey.Data.Entitites;
+using SimpleSurvey.ViewModel;
 
-namespace TestAppCancerInst.Controllers
+namespace SimpleSurvey.Controllers
 {
     [Route("api/[controller]")]
     public class SurveyController : Controller

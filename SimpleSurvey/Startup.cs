@@ -1,5 +1,5 @@
 using AutoMapper;
-using TestAppCancerInst.Data;
+using SimpleSurvey.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 
 
-namespace TestAppCancerInst
+namespace SimpleSurvey
 {
     public class Startup
     {
@@ -30,7 +30,7 @@ namespace TestAppCancerInst
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
-                configuration.RootPath = "wwwroot";
+                configuration.RootPath = "ClientApp/dist";
             });
 
             //Entity - DbContext
@@ -66,7 +66,10 @@ namespace TestAppCancerInst
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseSpaStaticFiles();
+            if (!env.IsDevelopment())
+            {
+                app.UseSpaStaticFiles();
+            }
 
             app.UseMvc(routes =>
             {

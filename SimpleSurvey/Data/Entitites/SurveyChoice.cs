@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestAppCancerInst.Data.Entitites
+namespace SimpleSurvey.Data.Entitites
 {
     public class SurveyChoice
     {

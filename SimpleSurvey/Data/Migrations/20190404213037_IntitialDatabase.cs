@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace TestAppCancerInst.Migrations
+namespace SimpleSurvey.Migrations
 {
     public partial class IntitialDatabase : Migration
     {

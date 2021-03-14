@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Newtonsoft.Json;
-using TestAppCancerInst.Data.Entitites;
+using SimpleSurvey.Data.Entitites;
 
-namespace TestAppCancerInst.Data
+namespace SimpleSurvey.Data
 {
 
     public class Seeder

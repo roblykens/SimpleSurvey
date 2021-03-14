@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
-using TestAppCancerInst.Controllers;
-using TestAppCancerInst.Data.Entitites;
-using TestAppCancerInst.ViewModel;
+using SimpleSurvey.Controllers;
+using SimpleSurvey.Data.Entitites;
+using SimpleSurvey.ViewModel;
 
-namespace TestAppCancerInst.Data
+namespace SimpleSurvey.Data
 {
     public class SurveyMappingProfile : Profile
     {

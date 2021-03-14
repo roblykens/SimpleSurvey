@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TestAppCancerInst.Data;
+using SimpleSurvey.Data;
 
-namespace TestAppCancerInst.Migrations
+namespace SimpleSurvey.Migrations
 {
     [DbContext(typeof(SurveyDbContext))]
     partial class SurveyDbContextModelSnapshot : ModelSnapshot
@@ -19,7 +19,7 @@ namespace TestAppCancerInst.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("TestAppCancerInst.Data.Entitites.SurveryAnswer", b =>
+            modelBuilder.Entity("SimpleSurvey.Data.Entitites.SurveryAnswer", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -36,7 +36,7 @@ namespace TestAppCancerInst.Migrations
                     b.ToTable("Answers");
                 });
 
-            modelBuilder.Entity("TestAppCancerInst.Data.Entitites.SurveyChoice", b =>
+            modelBuilder.Entity("SimpleSurvey.Data.Entitites.SurveyChoice", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -53,7 +53,7 @@ namespace TestAppCancerInst.Migrations
                     b.ToTable("Choices");
                 });
 
-            modelBuilder.Entity("TestAppCancerInst.Data.Entitites.SurveyNickname", b =>
+            modelBuilder.Entity("SimpleSurvey.Data.Entitites.SurveyNickname", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -66,7 +66,7 @@ namespace TestAppCancerInst.Migrations
                     b.ToTable("Nicknames");
                 });
 
-            modelBuilder.Entity("TestAppCancerInst.Data.Entitites.SurveyQuestion", b =>
+            modelBuilder.Entity("SimpleSurvey.Data.Entitites.SurveyQuestion", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -79,9 +79,9 @@ namespace TestAppCancerInst.Migrations
                     b.ToTable("Questions");
                 });
 
-            modelBuilder.Entity("TestAppCancerInst.Data.Entitites.SurveyChoice", b =>
+            modelBuilder.Entity("SimpleSurvey.Data.Entitites.SurveyChoice", b =>
                 {
-                    b.HasOne("TestAppCancerInst.Data.Entitites.SurveyQuestion", "Question")
+                    b.HasOne("SimpleSurvey.Data.Entitites.SurveyQuestion", "Question")
                         .WithMany("Choices")
                         .HasForeignKey("QuestionId");
                 });

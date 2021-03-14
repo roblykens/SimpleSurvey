@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace TestAppCancerInst.ViewModel
+namespace SimpleSurvey.ViewModel
 {
     public class NickNameViewModel
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestAppCancerInst.ViewModel
+namespace SimpleSurvey.ViewModel
 {
     public class AnswersViewModel
     {

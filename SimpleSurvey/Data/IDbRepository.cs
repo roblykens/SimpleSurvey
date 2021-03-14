@@ -1,6 +1,6 @@
-﻿using TestAppCancerInst.Data.Entitites;
+﻿using SimpleSurvey.Data.Entitites;
 
-namespace TestAppCancerInst.Data
+namespace SimpleSurvey.Data
 {
     public interface IDbRepository
     {
